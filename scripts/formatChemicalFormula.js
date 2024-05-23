@@ -1,3 +1,3 @@
 function formatChemicalFormula(formula) {
-    return formula.replace(/(\d+)/g, '<sub>$1</sub>');
+    return formula.replace(/([A-Za-z])(\d+)/g, '$1<sub>$2</sub>');
 }
