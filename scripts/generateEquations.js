@@ -26,12 +26,12 @@ function generateEquations(reactants, products) {
     const equations = Array.from(allElements).map(element => {
         const reactantSide = reactants.map((compound, i) => {
             const count = elementCounts[compound][element] || 0;
-            return count ? `${count}${String.fromCharCode(97 + i)}` : null;
+            return count ? `${count > 1 ? count : ''}${String.fromCharCode(97 + i)}` : null;
         }).filter(Boolean).join(' + ');
         
         const productSide = products.map((compound, i) => {
             const count = elementCounts[compound][element] || 0;
-            return count ? `${count}${String.fromCharCode(97 + reactants.length + i)}` : null;
+            return count ? `${count > 1 ? count : ''}${String.fromCharCode(97 + reactants.length + i)}` : null;
         }).filter(Boolean).join(' + ');
 
         return `${reactantSide} = ${productSide}`;
@@ -60,6 +60,9 @@ document.getElementById('equationForm').addEventListener('submit', function(even
 
     const equations = generateEquations(reactants, products);
 
+    const latexEquations = equations.map(eq => `\\[${eq.replace(/ /g, '\\ ')}\\]`).join('');
     const equationsContainer = document.getElementById('equations');
-    equationsContainer.innerHTML = '<h2>Sistema de Ecuaciones</h2><ul>' + equations.map(eq => `<li>${eq}</li>`).join('') + '</ul>';
+    equationsContainer.innerHTML = '<h2>Sistema de Ecuaciones</h2>' + latexEquations;
+
+    MathJax.typeset(); // Renderizar las ecuaciones con MathJax
 });
