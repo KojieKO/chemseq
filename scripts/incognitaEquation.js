@@ -15,3 +15,4 @@ document.getElementById('equationForm').addEventListener('submit', function(even
         li.setAttribute('data-symbol', symbols[symbolIndex++]);
     });
 });
+    
