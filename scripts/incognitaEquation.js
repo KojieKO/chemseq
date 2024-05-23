@@ -7,12 +7,11 @@ document.getElementById('equationForm').addEventListener('submit', function(even
     const symbols = 'abcdefghijklmnopqrstuvwxyz'.split('');
     let symbolIndex = 0;
     
-    Array.from(reactantsList).forEach((li, index) => {
+    Array.from(reactantsList).forEach((li) => {
         li.setAttribute('data-symbol', symbols[symbolIndex++]);
     });
     
-    Array.from(productsList).forEach((li, index) => {
+    Array.from(productsList).forEach((li) => {
         li.setAttribute('data-symbol', symbols[symbolIndex++]);
     });
 });
-    

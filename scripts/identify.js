@@ -1,8 +1,20 @@
 document.getElementById('equationForm').addEventListener('submit', function(event) {
     event.preventDefault();
     
-    const equation = document.getElementById('equation').value;
+    const equationInput = document.getElementById('equation');
+    const equation = equationInput.value.trim();
+
+    if (!equation.includes('=>')) {
+        alert('La ecuación debe contener "=>" para separar reactivos y productos.');
+        return;
+    }
+
     const [reactants, products] = equation.split('=>').map(side => side.trim());
+
+    if (!reactants || !products) {
+        alert('Asegúrese de que la ecuación contenga reactivos y productos.');
+        return;
+    }
     
     const reactantsList = document.getElementById('reactants');
     const productsList = document.getElementById('products');
