@@ -25,11 +25,11 @@ function generateEquations(reactants, products) {
 
     const equations = Array.from(allElements).map(element => {
         const reactantSide = reactants.map((compound, i) => {
-            return `${(elementCounts[compound][element] || 0)}a${i+1}`;
+            return `${(elementCounts[compound][element] || 0)}${String.fromCharCode(97 + i)}`;
         }).join(' + ');
         
         const productSide = products.map((compound, i) => {
-            return `${(elementCounts[compound][element] || 0)}c${i+1}`;
+            return `${(elementCounts[compound][element] || 0)}${String.fromCharCode(99 + i)}`;
         }).join(' + ');
 
         return `${reactantSide} = ${productSide}`;
@@ -59,5 +59,5 @@ document.getElementById('equationForm').addEventListener('submit', function(even
     const equations = generateEquations(reactants, products);
 
     const equationsContainer = document.getElementById('equations');
-    equationsContainer.innerHTML = '<h2>Sistema de Ecuaciones</h2><ul>' + equations.map(eq => `<li>${eq}</li>`).join('') + '</ul>';
+    equationsContainer.innerHTML = '<h2>Sistema de Ecuaciones</h2><ul>' + equations.map(eq => `<li>${eq.replace(/\b0[a-z]\b/g, '0').replace(/\b1([a-z])\b/g, '$1')}</li>`).join('') + '</ul>';
 });
