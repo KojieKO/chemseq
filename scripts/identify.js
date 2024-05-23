@@ -29,13 +29,13 @@ document.getElementById('equationForm').addEventListener('submit', function(even
     
     reactants.split('+').forEach(reactant => {
         const li = document.createElement('li');
-        li.innerHTML = formatChemicalFormula(reactant.trim());
+        li.innerHTML = `<span class="chemical-formula">${formatChemicalFormula(reactant.trim())}</span>`;
         reactantsList.appendChild(li);
     });
     
     products.split('+').forEach(product => {
         const li = document.createElement('li');
-        li.innerHTML = formatChemicalFormula(product.trim());
+        li.innerHTML = `<span class="chemical-formula">${formatChemicalFormula(product.trim())}</span>`;
         productsList.appendChild(li);
     });
 });

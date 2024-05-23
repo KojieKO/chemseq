@@ -78,7 +78,6 @@ button:hover {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    white-space: nowrap; /* Prevent breaking in the middle of chemical formulas */
 }
 
 .column li::after {
@@ -95,7 +94,13 @@ button:hover {
     margin-left: 10px;
 }
 
-sub {
+/* Estilo propio para las fórmulas químicas */
+.chemical-formula {
+    font-family: 'Courier New', Courier, monospace;
+    white-space: nowrap;
+}
+
+.chemical-formula sub {
     vertical-align: sub;
     font-size: smaller;
 }
