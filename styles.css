@@ -47,10 +47,13 @@ button:hover {
     background-color: #4cae4c;
 }
 
-#result {
+#identifyCompounds {
+    margin-top: 20px;
+}
+
+.columns {
     display: flex;
     justify-content: space-around;
-    margin-top: 20px;
 }
 
 .column {
