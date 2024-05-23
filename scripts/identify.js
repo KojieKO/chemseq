@@ -39,7 +39,3 @@ document.getElementById('equationForm').addEventListener('submit', function(even
         productsList.appendChild(li);
     });
 });
-
-function formatChemicalFormula(formula) {
-    return formula.replace(/(\d+)/g, '<sub>$1</sub>');
-}
