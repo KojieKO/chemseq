@@ -96,7 +96,8 @@ button:hover {
 
 /* Estilo propio para las fórmulas químicas */
 .chemical-formula {
-    white-space: nowrap;
+    white-space: nowrap; /* Evitar saltos de línea */
+    display: inline-block; /* Asegurar que se mantenga en línea */
 }
 
 .chemical-formula sub {
