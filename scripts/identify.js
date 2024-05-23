@@ -2,7 +2,8 @@ document.getElementById('equationForm').addEventListener('submit', function(even
     event.preventDefault();
     
     const equation = document.getElementById('equation').value;
-    const [reactants, products] = equation.split('=>').map(side => side.trim());
+    const separator = equation.includes('=>') ? '=>' : '=';
+    const [reactants, products] = equation.split(separator).map(side => side.trim());
     
     const reactantsList = document.getElementById('reactants');
     const productsList = document.getElementById('products');
