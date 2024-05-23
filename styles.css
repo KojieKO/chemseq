@@ -77,7 +77,8 @@ button:hover {
     position: relative;
     display: flex;
     justify-content: space-between;
-    align-items: center; /* Centrando verticalmente */
+    align-items: center;
+    white-space: nowrap; /* Prevent breaking in the middle of chemical formulas */
 }
 
 .column li::after {
@@ -92,4 +93,9 @@ button:hover {
     align-items: center;
     font-weight: bold;
     margin-left: 10px;
+}
+
+sub {
+    vertical-align: sub;
+    font-size: smaller;
 }
