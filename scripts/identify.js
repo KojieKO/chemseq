@@ -3,13 +3,18 @@ document.getElementById('equationForm').addEventListener('submit', function(even
     
     const equationInput = document.getElementById('equation');
     const equation = equationInput.value.trim();
+    let separator = '';
 
-    if (!equation.includes('=>')) {
-        alert('La ecuación debe contener "=>" para separar reactivos y productos.');
+    if (equation.includes('=>')) {
+        separator = '=>';
+    } else if (equation.includes('=')) {
+        separator = '=';
+    } else {
+        alert('La ecuación debe contener "=>" o "=" para separar reactivos y productos.');
         return;
     }
 
-    const [reactants, products] = equation.split('=>').map(side => side.trim());
+    const [reactants, products] = equation.split(separator).map(side => side.trim());
 
     if (!reactants || !products) {
         alert('Asegúrese de que la ecuación contenga reactivos y productos.');
