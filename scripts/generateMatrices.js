@@ -24,17 +24,8 @@ function generateMatrices(reactants, products) {
         return row;
     });
 
-    const identityMatrix = Array(allCompounds.length).fill().map((_, i) => {
-        const row = Array(allCompounds.length).fill(0);
-        row[i] = 1;
-        return row;
-    });
-
     console.log("Matriz del sistema:");
     console.table(matrix);
-
-    console.log("Matriz de identidad:");
-    console.table(identityMatrix);
 }
 
 document.getElementById('equationForm').addEventListener('submit', function(event) {
